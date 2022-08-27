@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900"
+        rel="stylesheet" />
     <link rel="stylesheet" href="./Assets/css/main.css">
     <link rel="stylesheet" href="./Assets/css/media_query.css">
     <style>
@@ -34,19 +35,25 @@
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
-                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
+                    <img class="slideImage"
+                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
+                        style="width:100%">
                     <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
-                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
+                    <img class="slideImage"
+                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
+                        style="width:100%">
                     <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
-                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
+                    <img class="slideImage"
+                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
+                        style="width:100%">
                     <div class="text">Caption Three</div>
                 </div>
 
@@ -112,18 +119,118 @@
 
             </div>
 
-            <button class="load-more">Use Search For Particular Product</button>
 
-        </section>
+            <!-- PRODUCT CARD SECTION -->
+            <div class="product-container">
+                <div>
+                    <h1 class=".product-container-heading">Latest Products</h1>
+                </div>
+                <div class="product-container-child">
+                    <div class="product-card">
+                        <div class="card-head">
+                            <span class="back-text"> FAS </span>
+                            <div class="product-detail">
+                                <!-- name -->
+                                <div class="product-name">
+                                    <h3><span>boAt Airdrop 141</span></h3>
+                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
+                                    <!-- <p>&#9733;4111 Reviews</p> -->
+                                </div>
+                                <!-- line  -->
+                                <hr>
+                                <!-- price and add to card -->
+                                <div class="product-price">
+                                    <!-- price -->
+                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
+                                    <!-- add to card -->
+                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-head">
+                            <span class="back-text"> FAS </span>
+                            <div class="product-detail">
+                                <!-- name -->
+                                <div class="product-name">
+                                    <h3><span>boAt Airdrop 141</span></h3>
+                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
+                                    <!-- <p>&#9733;4111 Reviews</p> -->
+                                </div>
+                                <!-- line  -->
+                                <hr>
+                                <!-- price and add to card -->
+                                <div class="product-price">
+                                    <!-- price -->
+                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
+                                    <!-- add to card -->
+                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-head">
+                            <span class="back-text"> FAS </span>
+                            <div class="product-detail">
+                                <!-- name -->
+                                <div class="product-name">
+                                    <h3><span>boAt Airdrop 141</span></h3>
+                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
+                                    <!-- <p>&#9733;4111 Reviews</p> -->
+                                </div>
+                                <!-- line  -->
+                                <hr>
+                                <!-- price and add to card -->
+                                <div class="product-price">
+                                    <!-- price -->
+                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
+                                    <!-- add to card -->
+                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-head">
+                            <span class="back-text"> FAS </span>
+                            <div class="product-detail">
+                                <!-- name -->
+                                <div class="product-name">
+                                    <h3><span>boAt Airdrop 141</span></h3>
+                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
+                                    <!-- <p>&#9733;4111 Reviews</p> -->
+                                </div>
+                                <!-- line  -->
+                                <hr>
+                                <!-- price and add to card -->
+                                <div class="product-price">
+                                    <!-- price -->
+                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
+                                    <!-- add to card -->
+                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+
+    <button class="load-more">Use Search For Particular Product</button>
+
+    </section>
 
 
 
 
-        <!-- Custome js link -->
-        <script src="./Assets/js/main.js"></script>
+    <!-- Custome js link -->
+    <script src="./Assets/js/main.js"></script>
 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </div>
 </body>
 
