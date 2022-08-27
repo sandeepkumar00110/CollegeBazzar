@@ -1,66 +1,150 @@
-input[type=text],
-[type=email],
-[type=password],
-select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(252, 240, 240);
-    border-radius: 4px;
-    box-sizing: border-box;
+
+body{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg,#2980b9, #8e44ad);
+  height: 100vh;
+  overflow: hidden;
+}
+body{
+  background-color: rgb(185, 199, 211);
+  background-image: url(https://coolbackgrounds.io/images/unsplash/josh-bean-medium-9501ba9f.jpg);
+  background-size: cover;
+  
+  
+  padding-bottom: 80px;
+  height: 100vh;
+  position: static;
+  box-shadow: 1px 1px 50px rgb(162, 168, 199), 5em -0.9em 5.9em rgb(19, 179, 228), -5.8em 5.9em 05em rgb(144, 34, 158);;
+  margin:0 0;
 }
 
-input[type=submit] {
-    width: 100%;
-    background-color: #ee2011;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: linear-gradient(45deg, #421b1b, #1f849399);
+  border-radius: 10px;
 }
 
-input[type=submit]:hover {
-    background-color: #1e226d;
+.center h1{
+  margin: 20px 0;
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid silver;
 }
 
-.sellerform {
-    border-radius: 5px;
-    background-color: #ccc6c6;
-    padding: 25px;
-    max-width: 300px;
+.center form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+form .txt_field{
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+
+.txt_field input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+  color:aliceblue
+}
+
+.txt_field label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.txt_field span::before{
+   content: '';
+   position: absolute;
+   top: 40px;
+   left: 0;
+   width:0%;
+   height: 2px;
+   background: #2691d9;
+   transition: .5s;
+}
+
+.txt_field input:focus ~label,
+.txt_field input:valid ~label{
+  top: -13px;
+  color: #2691d9;
+}
+
+.txt_field input:focus ~span::before,
+.txt_field input:valid ~span::before{
+  width: 100%;
 
 }
 
-body {
-    background-color: rgb(57, 56, 54);
+.pass{
+  margin: -5px 0 20px 5px;
+  color: #a6a6a6;
+  cursor: pointer;
 
 }
 
-/* On screens that are 992px wide or less, the background color is blue
-@media screen and (max-width: 1800px) {} */
-
-/* On screens that are 600px wide or less, the background color is olive */
-/* @media screen and (max-width: 1000px) {} */
-
-h3 {
-    color: rgb(251, 251, 251);
-    font-size: 50px;
-    font-weight: 150px;
-    text-align: center;
+.pass:hover{
+  text-decoration: underline;
 }
 
-p {
-    color: rgb(251, 251, 251);
-    font-size: 20px;
-    font-weight: 80px;
-    text-align: center;
+
+input[type="submit"]{
+  width: 100%;
+  height: 40px;
+  border: 1px solid black;
+  background: #00000075;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 18px;
+  color: #e9f4fb; 
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
 }
 
-.classform {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+input[type="submit"]:hover{
+  border-color: #313536a2;
+  background-color:black;
+  transition: .5s;
+}
+
+.signup_link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+
+}
+
+.signup_link a{
+  color: #2691d9;
+  text-decoration: none;
+}
+
+.signup_link a:hover{
+  text-decoration: underline;
+}
+
+@media screen and (max-width:700px) {
+ 
+  .center{
+    top: 60%;
+    width:96vw;
+  }
 }

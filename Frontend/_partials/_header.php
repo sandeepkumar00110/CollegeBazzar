@@ -59,14 +59,27 @@
 
 
 
-            <a style="margin: 0 5px;" href="#" class="navbar-signin">
-                <span>Sandeep</span>
-
-            </a>
-            <a href="auth/logout.php" class="navbar-signin">
+            <?php
+            if ($login == true) {
+                echo '
+                <span style="margin:0px 5px;">' . $username . '</span>
+            <a href="collebazzar/../Auth/logout.php" class="navbar-signin">
                 <span>Logout</span>
                 <ion-icon name="log-in-outline"></ion-icon>
             </a>
+                ';
+            } else {
+                echo ' <a style="margin: 0 5px;" href="collebazzar/../Auth/login.php" class="navbar-signin">
+                <span>Login</span>
+
+            </a>
+            <a href="collebazzar/../Auth/sign.php" class="navbar-signin">
+                <span>Sigin</span>
+         
+            </a>';
+            }
+            ?>
+
 
         </div>
 

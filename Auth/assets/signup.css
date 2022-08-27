@@ -28,10 +28,9 @@ input[type=submit]:hover {
 
 .sellerform {
     border-radius: 5px;
-    background-color: #ccc6c6;
+    background: linear-gradient(45deg, #302a2a, #13808699);
     padding: 25px;
     max-width: 300px;
-
 }
 
 body {

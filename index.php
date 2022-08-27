@@ -1,3 +1,20 @@
+<?php
+session_start();
+// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+//     header('location: ../auth/login.php');
+//     exit;
+// } else 
+if ($_SESSION['is_blocked'] == 0) {
+    header('location: ../free/welcome.php');
+    exit;
+}
+$login = $_SESSION['loggedin'];
+$username = $_SESSION['username'];
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
