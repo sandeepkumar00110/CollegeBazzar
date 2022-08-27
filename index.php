@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
     <link rel="stylesheet" href="./Assets/css/main.css">
     <link rel="stylesheet" href="./Assets/css/media_query.css">
     <style>
@@ -18,12 +17,12 @@
 
 <body>
     <div class="container">
-        <header style="height: 50px;">
 
-            <!-- header of the website -->
-            <?php include 'Frontend/_partials/_header.php' ?>
 
-        </header>
+        <!-- header of the website -->
+        <?php include 'Frontend/_partials/_header.php' ?>
+
+
 
         <!--
         - #BANNER SECTION
@@ -35,25 +34,19 @@
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
-                    <img class="slideImage"
-                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
-                        style="width:100%">
+                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
                     <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
-                    <img class="slideImage"
-                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
-                        style="width:100%">
+                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
                     <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
-                    <img class="slideImage"
-                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
-                        style="width:100%">
+                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
                     <div class="text">Caption Three</div>
                 </div>
 
@@ -119,10 +112,6 @@
 
             </div>
 
-
-
-
-            <button class="load-more">Use Search For Particular Product</button>
 
 
             <!-- PRODUCT CARD SECTION -->
