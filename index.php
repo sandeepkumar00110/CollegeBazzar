@@ -120,6 +120,11 @@
             </div>
 
 
+
+
+            <button class="load-more">Use Search For Particular Product</button>
+
+
             <!-- PRODUCT CARD SECTION -->
             <div class="product-container">
                 <div>
