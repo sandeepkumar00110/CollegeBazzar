@@ -517,7 +517,7 @@ ul .link-item:not(:last-child) {
 .product-detail {
   display: flex;
   flex-direction: column;
-  background-color: #960f0f;
+  background:linear-gradient(45deg, black, transparent);
   padding: 10px;
   margin: 0px 5px 5px 5px;
   border-radius: 20px;
