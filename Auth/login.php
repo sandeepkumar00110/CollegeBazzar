@@ -16,18 +16,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         while ($row = mysqli_fetch_assoc($result)) {
             if (password_verify($password, $row['password'])) {
                 $login = true;
-                $sql1 = "Select * from users where username='$username' AND is_blocked='1' ";
+                $sql1 = "Select * from users where username='$username' AND is_blocked='0' ";
                 $result = mysqli_query($conn, $sql1);
                 $numb = mysqli_num_rows($result);
+                $temp =  mysqli_fetch_assoc($result);
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
+                $_SESSION['admin'] = $temp["is_admin"];
                 if ($numb == 1) {
                     $_SESSION['is_blocked'] = 1;
                     header('location: ../index.php');
                 } else {
                     $_SESSION['is_blocked'] = 0;
-                    header('location: ../../../index.php');
+                    header('location: sign.php');
                 }
             } else {
                 $showError = "Invalid credencials";
@@ -64,13 +66,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php
 
     if ($login) {
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        echo '<div style="font-family: fantasy;
+        background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
+         font-size: xx-large;
+         padding: 15px;
+         border-radius: 5px;  class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>Success</strong> Your have been succesfully login!
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
     }
     if ($showError) {
-        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        echo '<div style="font-family: fantasy;
+        background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
+         font-size: xx-large;
+         padding: 15px;
+         border-radius: 5px; class="alert alert-danger alert-dismissible fade show" role="alert">
           <strong>Error</strong> ' . $showError . '
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
@@ -95,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="pass">Forget Password?</div>
             <input type="submit" value="Login">
             <div class="signup_link">
-                Not a member? <a href="sigin.php">Signup</a>
+                Not a member? <a href="sign.php">Signup</a>
             </div>
         </form>
     </div>

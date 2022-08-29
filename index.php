@@ -1,15 +1,28 @@
 <?php
 session_start();
-// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-//     header('location: ../auth/login.php');
-//     exit;
-// } else 
-if ($_SESSION['is_blocked'] == 0) {
-    header('location: ../free/welcome.php');
-    exit;
+if (!isset($_SESSION['loggedin'])) {
+    $login = false;
+} else if ($_SESSION['loggedin'] != true) {
+    $login = false;
+} else {
+    $login = true;
+    $username = $_SESSION['username'];
+    $admin = $_SESSION['admin'];
 }
-$login = $_SESSION['loggedin'];
-$username = $_SESSION['username'];
+
+
+// header('location: index.php');
+// $login = false;
+// exit;
+// } else 
+// if ($_SESSION['is_blocked'] == 0) {
+//     header('location: ../free/welcome.php');
+//     exit;
+// } else {
+//$login = $_SESSION['loggedin'];
+//  $username = $_SESSION['username'];
+//}
+
 
 ?>
 
@@ -27,7 +40,36 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="./Assets/css/main.css">
     <link rel="stylesheet" href="./Assets/css/media_query.css">
     <style>
+        .product-card {
+            border-radius: 10px;
+            background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
+        }
 
+        #card-image {
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .product-card:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .filter-bar {
+            background: linear-gradient(45deg, #b80c14, #dbaa31f5);
+        }
+
+        .navbar-signin {
+            font-weight: 900;
+            text-shadow: 0px 2px 3px rgba(77, 206, 137, 1);
+        }
+
+        .filter-radios {
+            background: linear-gradient(45deg, black, transparent);
+        }
+
+        .card-head {
+            max-width: 220px;
+        }
     </style>
 
 </head>
@@ -137,94 +179,55 @@ $username = $_SESSION['username'];
                     <h1 class=".product-container-heading">Latest Products</h1>
                 </div>
                 <div class="product-container-child">
-                    <div class="product-card">
+                    <?php
+                    include 'Auth/partials/_dbconnect.php';
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products ORDER BY prod_id LIMIT 10";
+                    $result = mysqli_query($conn, $sql);
+                    $num = mysqli_num_rows($result);
+                    while ($num != 0) {
+                        $row = mysqli_fetch_assoc($result);
+                        $cat_id = $row["category_id"];
+                        $type_id = $row["type_id"];
+                        $sql1 = "Select type_name from types where category_id='$cat_id' and type_id='$type_id'";
+                        $sql2 = "Select category_name from category where category_id='$cat_id'";
+                        $resultcat1 = mysqli_query($conn, $sql2);
+                        $catype = mysqli_fetch_assoc($resultcat1);
+                        $resultcat = mysqli_query($conn, $sql1);
+                        $rowtype = mysqli_fetch_assoc($resultcat);
+                        // print_r($rowtype);
+                        $thumbnail = $row["thumbnail"];
+                        echo ' <div class="product-card">
                         <div class="card-head">
-                            <span class="back-text"> FAS </span>
+                            <!-- <span class="back-text"> FAS </span> -->
+                            <img id="card-image" src="' . $thumbnail . '" alt="">
                             <div class="product-detail">
                                 <!-- name -->
                                 <div class="product-name">
-                                    <h3><span>boAt Airdrop 141</span></h3>
-                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
-                                    <!-- <p>&#9733;4111 Reviews</p> -->
+                                    <h3><span>' . $row["prod_name"] . '</span></h3>
+                                    <span style="font-size:22px; color:red">&#9733;</span> ' . $rowtype["type_name"] . ' | ' . $catype["category_name"] . '
+      
                                 </div>
                                 <!-- line  -->
                                 <hr>
                                 <!-- price and add to card -->
                                 <div class="product-price">
                                     <!-- price -->
-                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
-                                    <!-- add to card -->
-                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
-                                </div>
+                                    <div class="product-pricec1"> <span>&#8377; ' . $row["price"] . '</span> </div>';
+
+                        echo ' <form action="./Frontend/prodDesc.php"  type="submit" method="GET">
+                                          <input type="text" style="display: none;" id="prod_id" name="prod_id" value="' . $row["prod_id"] . '">
+                                      <div class="product-pricec2"><button class="addtocart">More Info</button></div>
+                                     </div>
+                               </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-head">
-                            <span class="back-text"> FAS </span>
-                            <div class="product-detail">
-                                <!-- name -->
-                                <div class="product-name">
-                                    <h3><span>boAt Airdrop 141</span></h3>
-                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
-                                    <!-- <p>&#9733;4111 Reviews</p> -->
-                                </div>
-                                <!-- line  -->
-                                <hr>
-                                <!-- price and add to card -->
-                                <div class="product-price">
-                                    <!-- price -->
-                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
-                                    <!-- add to card -->
-                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-head">
-                            <span class="back-text"> FAS </span>
-                            <div class="product-detail">
-                                <!-- name -->
-                                <div class="product-name">
-                                    <h3><span>boAt Airdrop 141</span></h3>
-                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
-                                    <!-- <p>&#9733;4111 Reviews</p> -->
-                                </div>
-                                <!-- line  -->
-                                <hr>
-                                <!-- price and add to card -->
-                                <div class="product-price">
-                                    <!-- price -->
-                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
-                                    <!-- add to card -->
-                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-head">
-                            <span class="back-text"> FAS </span>
-                            <div class="product-detail">
-                                <!-- name -->
-                                <div class="product-name">
-                                    <h3><span>boAt Airdrop 141</span></h3>
-                                    <span style='font-size:22px; color:red'>&#9733;</span> 4.5/5 | 4,111 Reviews
-                                    <!-- <p>&#9733;4111 Reviews</p> -->
-                                </div>
-                                <!-- line  -->
-                                <hr>
-                                <!-- price and add to card -->
-                                <div class="product-price">
-                                    <!-- price -->
-                                    <div class="product-pricec1"> <span>&#8377; 1399</span> </div>
-                                    <!-- add to card -->
-                                    <div class="product-pricec2"> <button class="addtocart">Add to cart</button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>';
+                        $num -= 1;
+                    }
+                    ?>
+
+
+
 
                 </div>
             </div>

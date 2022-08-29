@@ -50,7 +50,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(216deg, black, #2b2121);
+  background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
+
+
 }
 
 /**
@@ -273,7 +275,7 @@ nav {
 
 .active,
 .dot:hover {
-  background-color: #717171;
+  background-color: #71717100;
 }
 
 /* Fading animation */
@@ -519,7 +521,7 @@ ul .link-item:not(:last-child) {
   flex-direction: column;
   background:linear-gradient(45deg, black, transparent);
   padding: 10px;
-  margin: 0px 5px 5px 5px;
+  margin: 10px 5px 5px 5px;
   border-radius: 20px;
 }
 
@@ -556,13 +558,51 @@ ul .link-item:not(:last-child) {
 }
 
 .product-container-child {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 1rem;
+  display: grid;
+  height: auto;
+  align-content: end;
+  grid-template-columns: auto auto auto auto;
+  gap: 4rem;
+
 }
 
 .product-container-heading {
   font-size: xx-large;
   color: red;
+}
+
+/* LOGIN-BUTTON */
+.login-button {
+  position: relative;
+  background: linear-gradient(54deg, #c44d4d, transparent);
+  position: relative;
+  border: none;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+  border-radius: 37px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.login-button:after {
+
+  background: #edeef5;
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.login-button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
 }

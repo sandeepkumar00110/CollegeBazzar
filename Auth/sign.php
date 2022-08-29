@@ -65,7 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <?php
     if ($showAlert) {
         echo '<div style="font-family: ui-sans-serif;
-       background: linear-gradient(45deg, #24a523, #c66a24);
+       background: linear-gradient(54deg, #113e15, #ffb103fc);
+       color:white;
         font-size: xx-large;
         padding: 15px;
         border-radius: 50px;" class="alert alert-success alert-dismissible fade show" role="alert">
@@ -74,14 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
        </div>';
     }
     if ($showError) {
-        echo '<div style="font-family: ui-sans-serif;
-        background: linear-gradient(45deg, #ce0808, #5e53e0d4);
-        font-size: xx-large;
-        padding: 15px;
-        border-radius: 50px;"  class="alert alert-danger alert-dismissible fade show" role="alert">
-             <strong>Error:-</strong> ' . $showError . '
-             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-       </div>';
+        echo '<div style="font-family: fantasy;
+        background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
+         font-size: xx-large;
+         padding: 15px;
+         border-radius: 5px; class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Error</strong> ' . $showError . '
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
     }
     ?>
     <!-- end error for sigin page -->
