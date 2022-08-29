@@ -72,7 +72,6 @@ if (!isset($_SESSION['loggedin'])) {
         }
     </style>
 
-
 </head>
 <script>
     function getinfo(e) {
@@ -83,7 +82,7 @@ if (!isset($_SESSION['loggedin'])) {
             element1 = document.getElementById('Books');
             element2 = document.getElementById('Electronic');
             if (element.style.display == 'none') {
-                element.style.display = 'grid';
+                element.style.display = 'flex';
                 element1.style.display = 'none';
                 element2.style.display = 'none';
                 // console.log(element.style.display);
@@ -97,7 +96,7 @@ if (!isset($_SESSION['loggedin'])) {
             element1 = document.getElementById('Products');
             element2 = document.getElementById('Electronic');
             if (element.style.display == 'none') {
-                element.style.display = 'grid';
+                element.style.display = 'flex';
                 element1.style.display = 'none';
                 element2.style.display = 'none';
                 // console.log(element.style.display);
@@ -110,7 +109,7 @@ if (!isset($_SESSION['loggedin'])) {
             element1 = document.getElementById('Products');
             element2 = document.getElementById('Books');
             if (element.style.display == 'none') {
-                element.style.display = 'grid';
+                element.style.display = 'flex';
                 element1.style.display = 'none';
                 element2.style.display = 'none';
                 // console.log(element.style.display);
@@ -185,19 +184,22 @@ if (!isset($_SESSION['loggedin'])) {
                 <!-- <div class="filter-dropdowns">
 
                     <select name="genre" id="genre" class="genre">
-                        <option value="all genres">Book</option>
-
-                        <option value="biography">Electronic</option>
+                        <option value="all genres">All genres</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="animal">Animal</option>
+                        <option value="animation">Animation</option>
+                        <option value="biography">Biography</option>
                     </select>
 
-                    <!-- <select name="year" class="year">
+                    <select name="year" class="year">
                         <option value="all years">All the years</option>
                         <option value="2022">2022</option>
                         <option value="2020-2021">2020-2021</option>
                         <option value="2010-2019">2010-2019</option>
                         <option value="2000-2009">2000-2009</option>
                         <option value="1980-1999">1980-1999</option>
-                    </select> -->
+                    </select>
 
                 </div> -->
 
@@ -222,7 +224,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
             <!-- PRODUCT CARD SECTION -->
-            <div id="Products" style="display:grid" class="product-container">
+            <div id="Products" style="display:flex" class="product-container">
                 <div>
                     <h1 class=".product-container-heading">Latest Products</h1>
                 </div>
@@ -279,14 +281,15 @@ if (!isset($_SESSION['loggedin'])) {
 
                 </div>
             </div>
-            <div id="Books" style="display:none" class="product-container">
+            <div id="Electronic" style="display:none" class="product-container">
                 <div>
-                    <h1 class=".product-container-heading">Books</h1>
+                    <h1 class=".product-container-heading">Electronic</h1>
                 </div>
                 <div class="product-container-child">
                     <?php
                     include 'Auth/partials/_dbconnect.php';
-                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where category_id='11000' ORDER BY prod_id LIMIT 10";
+                    $cat = "12000";
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where category_id='$cat' ORDER BY prod_id LIMIT 10";
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {
@@ -336,14 +339,15 @@ if (!isset($_SESSION['loggedin'])) {
 
                 </div>
             </div>
-            <div id="Electronic" style="display:none" class="product-container">
+            <div id="Books" style="display:none" class="product-container">
                 <div>
-                    <h1 class=".product-container-heading">Electronic</h1>
+                    <h1 class=".product-container-heading">Books</h1>
                 </div>
                 <div class="product-container-child">
                     <?php
                     include 'Auth/partials/_dbconnect.php';
-                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where category_id='12000' ORDER BY prod_id LIMIT 10";
+                    $cat = "11000";
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where category_id='$cat' ORDER BY prod_id LIMIT 10";
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {
