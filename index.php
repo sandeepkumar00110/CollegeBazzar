@@ -36,40 +36,43 @@ if (!isset($_SESSION['loggedin'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900"
+        rel="stylesheet" />
     <link rel="stylesheet" href="./Assets/css/main.css">
     <link rel="stylesheet" href="./Assets/css/media_query.css">
     <style>
-        .product-card {
-            border-radius: 10px;
-            background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
-        }
+    .product-card {
+        border-radius: 10px;
+        background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
+    }
 
-        #card-image {
-            border-radius: 10px 10px 0px 0px;
-        }
+    #card-image {
+        height: 200px;
+        max-height: 200px;
+        border-radius: 10px 10px 0px 0px;
+    }
 
-        .product-card:hover {
-            transform: scale(1.1);
-            cursor: pointer;
-        }
+    .product-card:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 
-        .filter-bar {
-            background: linear-gradient(45deg, #b80c14, #dbaa31f5);
-        }
+    .filter-bar {
+        background: linear-gradient(45deg, #b80c14, #dbaa31f5);
+    }
 
-        .navbar-signin {
-            font-weight: 900;
-            text-shadow: 0px 2px 3px rgba(77, 206, 137, 1);
-        }
+    .navbar-signin {
+        font-weight: 900;
+        text-shadow: 0px 2px 3px rgba(77, 206, 137, 1);
+    }
 
-        .filter-radios {
-            background: linear-gradient(45deg, black, transparent);
-        }
+    .filter-radios {
+        background: linear-gradient(45deg, black, transparent);
+    }
 
-        .card-head {
-            max-width: 220px;
-        }
+    .card-head {
+        max-width: 220px;
+    }
     </style>
 
 </head>
@@ -93,19 +96,25 @@ if (!isset($_SESSION['loggedin'])) {
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
-                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
+                    <img class="slideImage"
+                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
+                        style="width:100%">
                     <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
-                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
+                    <img class="slideImage"
+                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
+                        style="width:100%">
                     <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
-                    <img class="slideImage" src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg" style="width:100%">
+                    <img class="slideImage"
+                        src="https://s3.birthmoviesdeath.com/images/made/john-wick-still_1050_591_81_s_c1.jpg"
+                        style="width:100%">
                     <div class="text">Caption Three</div>
                 </div>
 
