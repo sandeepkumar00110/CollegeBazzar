@@ -184,7 +184,11 @@
   /**
    * BANNER SECTION 
    */
-
+  /* products  */
+  .product-container-child{
+    grid-template-columns: auto auto auto ;
+    justify-content: center;
+  }
 
 }
 
@@ -214,7 +218,10 @@
 
   .banner { display: none; }
 
-
+  .product-container-child{
+    grid-template-columns: auto auto  ;
+    justify-content: center;
+  }
 
   /**
    * MOVIE SECTION
@@ -255,6 +262,12 @@
     --section-heading: 32px;
     --fs-lg:           20px;
 
+  }
+
+  /* products */
+  .product-container-child{
+    grid-template-columns:  auto ;
+    justify-content: center;
   }
 
   .navbar-search-btn { margin-right: 20px; }
