@@ -68,7 +68,7 @@
                 <span>Admin</span>
                          </a>';
                 }
-                echo ' <a href="collegebazzar/../../Auth/logout.php" class="navbar-signin">
+                echo ' <a href="collegebazzar/.././Auth/logout.php" class="navbar-signin">
                                  <span>Logout</span>
                                  <ion-icon name="log-in-outline"></ion-icon>
                       </a>';
