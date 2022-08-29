@@ -22,7 +22,7 @@
         <nav class="">
             <ul class="navbar-nav">
 
-                <li> <a href="../index.php" class="navbar-link">Home</a> </li>
+                <li> <a href="/collegebazzar/index.php" class="navbar-link">Home</a> </li>
                 <li> <a href="#category" class="navbar-link">Category</a> </li>
                 <li> <a href="Frontend/addProduct.php" class="navbar-link">Add Product</a> </li>
 
@@ -38,7 +38,8 @@
 
             <form style="border-radius: 5px;
     padding: 8px;" action="search.php" method='GET' class="navbar-form">
-                <input type="text" name="search" id="search" placeholder="I'm looking for..." class="navbar-form-search">
+                <input type="text" name="search" id="search" placeholder="I'm looking for..."
+                    class="navbar-form-search">
 
                 <button class="navbar-form-btn">
                     <ion-icon name="search-outline"></ion-icon>
@@ -67,7 +68,7 @@
                 <span>Admin</span>
                          </a>';
                 }
-                echo ' <a href="collegebazzar/../../Auth/logout.php" class="navbar-signin">
+                echo ' <a href="collegebazzar/.././Auth/logout.php" class="navbar-signin">
                                  <span>Logout</span>
                                  <ion-icon name="log-in-outline"></ion-icon>
                       </a>';
