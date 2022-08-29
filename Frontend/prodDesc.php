@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <link rel="stylesheet" href="../Assets/css/main.css">
     <link rel="stylesheet" href="../Assets/css/media_query.css">
     <link rel="stylesheet" href="productinfo.css" class="css" />
+    <link rel="stylesheet" href="../bot/bot.css">
     <style>
         @media screen and (max-width: 850px) {
             .wrapper {
@@ -154,6 +155,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                 </div>
             </div>
+        </div>
+
+        <div class="card">
+            <h1>Talk To Seller</h1>
+            <?php include "../bot/bot.php" ?>
         </div>
     </div>
     <script src="../Assets/js/main.js"></script>

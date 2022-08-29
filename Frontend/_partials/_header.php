@@ -60,7 +60,7 @@
             <?php
             if ($login == true) {
                 echo ' <a style="margin: 0 5px;" href="#" class="navbar-signin">
-                <span>' . $_SESSION['username'] . '</span>
+                <span id="username" value=" ' . $_SESSION['username'] . '">' . $_SESSION['username'] . '</span>
                          </a>';
                 if ($_SESSION['admin'] == 1) {
                     echo ' <a style="margin: 0 5px;" href="Frontend/Admin/index.php" class="navbar-signin">
