@@ -231,7 +231,7 @@ if (!isset($_SESSION['loggedin'])) {
                 <div class="product-container-child">
                     <?php
                     include 'Auth/partials/_dbconnect.php';
-                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products ORDER BY prod_id LIMIT 10";
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' ORDER BY prod_id LIMIT 10";
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {
@@ -289,7 +289,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <?php
                     include 'Auth/partials/_dbconnect.php';
                     $cat = "12000";
-                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where category_id='$cat' ORDER BY prod_id LIMIT 10";
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' and category_id='$cat' ORDER BY prod_id LIMIT 10";
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {
@@ -347,7 +347,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <?php
                     include 'Auth/partials/_dbconnect.php';
                     $cat = "11000";
-                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where category_id='$cat' ORDER BY prod_id LIMIT 10";
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' and category_id='$cat' ORDER BY prod_id LIMIT 10";
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {
