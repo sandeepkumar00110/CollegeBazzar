@@ -143,22 +143,19 @@ if (!isset($_SESSION['loggedin'])) {
                 <div class="filter-dropdowns">
 
                     <select name="genre" id="genre" class="genre">
-                        <option value="all genres">All genres</option>
-                        <option value="action">Action</option>
-                        <option value="adventure">Adventure</option>
-                        <option value="animal">Animal</option>
-                        <option value="animation">Animation</option>
-                        <option value="biography">Biography</option>
+                        <option value="all genres">Book</option>
+
+                        <option value="biography">Electronic</option>
                     </select>
 
-                    <select name="year" class="year">
+                    <!-- <select name="year" class="year">
                         <option value="all years">All the years</option>
                         <option value="2022">2022</option>
                         <option value="2020-2021">2020-2021</option>
                         <option value="2010-2019">2010-2019</option>
                         <option value="2000-2009">2000-2009</option>
                         <option value="1980-1999">1980-1999</option>
-                    </select>
+                    </select> -->
 
                 </div>
 
