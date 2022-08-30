@@ -24,9 +24,13 @@ $prod_id = $_POST['prod_id'];
 $insert = "INSERT INTO `chatbot`(`message_from`, `message_for`, `messages`,`prod_id`) VALUES ('$message_from','$message_for','$user_messages','$prod_id')";
 $makeQuery = mysqli_query($conn, $insert);
 
+$take = "SELECT id from chatbot where message_from='$message_from' and message_for='$message_for' and prod_id='$prod_id' and messages='$user_messages'";
+$makeQuery = mysqli_query($conn, $take);
+$num = mysqli_num_rows($makeQuery);
+$row = mysqli_fetch_assoc($makeQuery);
+$id = $row['id'];
 
-
-$query = "SELECT * FROM chatbot WHERE message_for='$message_for' and message_from='$message_from'";
+$query = "SELECT * FROM chatbot WHERE message_for='$message_for' and message_from='$message_from' and id='$id' and prod_id='$prod_id'";
 // if (isset($_POST['']))
 // Execute query on connected database using the SQL query
 $makeQuery = mysqli_query($conn, $query);

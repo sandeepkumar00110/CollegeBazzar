@@ -12,21 +12,21 @@ $name = $_SESSION['username'];
       <!-- This section will be dynamically inserted from JavaScript -->
 
 
-      <div class="userSection">
 
-        <?php
-        $sql = "select * from chatbot where message_from='$name' and prod_id='$prod_id'";
-        $result = mysqli_query($conn, $sql);
-        $num = mysqli_num_rows($result);
-        while ($num != 0) {
-          $row = mysqli_fetch_assoc($result);
 
-          echo '  <div class="userSection">
+      <?php
+      $sql = "select * from chatbot where message_from='$name' and prod_id='$prod_id'";
+      $result = mysqli_query($conn, $sql);
+      $num = mysqli_num_rows($result);
+      while ($num != 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        echo '  <div class="userSection">
           <div class="messages user-message">
                   ' . $row['messages'] . '
           </div>
-          <div class="seperator"></div>';
-          echo '   <div class="botSection">
+          <div class="seperator"></div> </div>';
+        echo '   <div class="botSection">
           <div class="messages bot-reply">
                  ' . $row['response'] . '
           </div>
@@ -34,18 +34,16 @@ $name = $_SESSION['username'];
         </div>';
 
 
-          $num -= 1;
-        }
-        ?>
-
-
-      </div>
-
-
-
+        $num -= 1;
+      }
+      ?>
 
 
     </div>
+
+
+
+
 
     <div id="inputArea">
       <input type="number" name="prod_id" id="prod_id" hidden value="<?php echo $prod_id; ?>">
@@ -53,6 +51,8 @@ $name = $_SESSION['username'];
       <input type="submit" id="send" value="Send" />
     </div>
   </div>
+
+</div>
 </div>
 
 <script type="text/javascript">

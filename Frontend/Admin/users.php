@@ -86,6 +86,17 @@ if (!isset($_SESSION['loggedin'])) {
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Registered Users</h6>
                             <div class="table-responsive table-hover">
+                                <!-- annoucemnt -->
+                                <div class="border rounded p-4 pb-0 mb-4">
+                                    <figure>
+                                        <blockquote class="blockquote">
+                                            <p> <mark>One means Blocked and Zero means Unblocked</mark></p>
+
+                                        </blockquote>
+                                        <br>
+                                    </figure>
+                                </div>
+
                                 <table class="table">
                                     <thead>
                                         <tr>

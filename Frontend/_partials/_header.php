@@ -29,10 +29,20 @@ if ($where == "home") {
     $addproPath = "./addProduct.php";
     $logOutPath = "../Auth/logout.php";
     $searchPath = "./search.php";
+} else if ($where == "login" or $where == "sign") {
+    $homePath = "../index.php";
+    $addproPath = "../Frontend/addProduct.php";
+    $signPath = "./sign.php";
+    $loginPath = "./login.php";
+    $searchPath = "../Frontend/search.php";
 }
 
 ?>
-
+<style>
+    .navbar-signin:hover {
+        transform: scale(1.25);
+    }
+</style>
 <header class="">
     <div class="navbar">
 
