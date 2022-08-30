@@ -29,7 +29,7 @@
  */
 
 .container {
-  max-width: 1440px;
+  max-width: 2000px;
   margin: auto;
 }
 
@@ -46,7 +46,7 @@
  */
 
 .navbar {
-  height: 50px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -202,7 +202,7 @@ nav {
 }
 
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 2000px;
   position: relative;
   max-height: 400px;
   margin: auto;

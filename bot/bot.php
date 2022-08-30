@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="bot.css">
 <?php
-include '../Auth/partials/_dbconnect.php';
+// $prod_id = $_SESSION['prod_id'];
 $name = $_SESSION['username'];
+include '../Auth/partials/_dbconnect.php';
 
 ?>
 <div id="bot">
@@ -15,7 +16,8 @@ $name = $_SESSION['username'];
 
 
       <?php
-      $sql = "select * from chatbot where message_from='$name' and prod_id='$prod_id'";
+      $sql = "SELECT * from chatbot where message_from='$name' and prod_id='$prod_id'";
+      // print_r($sql);
       $result = mysqli_query($conn, $sql);
       $num = mysqli_num_rows($result);
       while ($num != 0) {
@@ -78,7 +80,7 @@ $name = $_SESSION['username'];
     // open a post request to server script. pass user message as parameter 
     xhr.open("POST", "../bot/query.php");
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var data = 'messageValue=' + userMessage + "&prod_id=" + prod_id + "&message_for=" + message_for + "&message_from=" + message_from;
+    var data = 'messageValue=' + userMessage + "&prod_id=" + <?php echo $prod_id; ?> + "&message_for=" + message_for + "&message_from=" + message_from;
     // var data = 'prod_id=' + prod_id;
     // const data = {
     //   "messageValue": userMessage,

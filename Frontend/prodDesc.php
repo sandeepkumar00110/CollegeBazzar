@@ -21,6 +21,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include './_partials/_dbconnect.php';
     $prod_id = $_GET['prod_id'];
+    $_SESSION['prod_id'] = $_GET['prod_id'];
     // echo $prod_id;
 } else {
     header('location: ../index.php');

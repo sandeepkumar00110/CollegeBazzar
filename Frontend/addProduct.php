@@ -147,12 +147,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
       <div>
         <textarea required rows="4" cols="50" id="prod_desc" name="prod_desc"></textarea>
       </div>
+      <br>
+      <div>
+        <p style="color:red">Use any free image hosting website(https://postimages.org/) and proveide the src link</p>
+      </div>
 
       <label for="product_thumbnail">Product Thumbnail</label>
       <input type="text" id="product_thumbnail" name="product_thumbnail" placeholder="https:/image-host/pro.jpeg" />
 
-      <label for="product_image">Product Image Link</label>
-      <input required type="text" id="product_image" name="product_image" placeholder="https:/image-host/pro.jpeg" />
+
+      <label for="product_image">Product Image Link(You can provide three image Link(1.png|2.png|3.png))</label>
+      <input required type="text" id="product_image" name="product_image" placeholder="1.png|2.png|3.png" />
 
       <label for="Category">Category</label>
       <select onchange="fun(this.value)" id="category" name="category">
