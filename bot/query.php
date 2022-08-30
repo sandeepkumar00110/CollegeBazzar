@@ -35,6 +35,7 @@ if (mysqli_num_rows($makeQuery) > 0) {
 
     // Get result
     $result = mysqli_fetch_assoc($makeQuery);
+    // print_r($result['is_response']);
     if ($result['is_response'] == 1) {
         echo $result['response'];
     } else {

@@ -6,6 +6,12 @@ if(isset($_SESSION["admin"])){
 $admin = 1;
 $login = true;
 $prod_id = 0;
+$showAlert  = false;
+$showError = false;
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+
+    $login = false;
+}
 // $username = 'sandeep';
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     $login = false;
