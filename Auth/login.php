@@ -3,6 +3,7 @@
 include 'partials/_dbconnect.php';
 $login = false;
 $showError = false;
+$where = "login";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -55,12 +56,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/login.css" />
+    <link rel="stylesheet" href="../Assets/css/main.css">
+    <link rel="stylesheet" href="../Assets/css/media_query.css">
+    <style>
+        body {
+            background: linear-gradient(45deg, #d07226, #c32e2e);
+
+        }
+
+        .center {
+            background: linear-gradient(5deg, #0d0202e0, #2d6d7738);
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- navbar start -->
     <?php require 'partials/_nav.php' ?>
+    <?php require '../Frontend/_partials/_header.php' ?>
     <!-- navbar end -->
 
     <?php
@@ -70,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
          font-size: xx-large;
          padding: 15px;
+         margin-top:50px;
          border-radius: 5px;  class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>Success</strong> Your have been succesfully login!
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -80,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         background: linear-gradient(54deg, #ff1f1f, #ffb103fc);
          font-size: xx-large;
          padding: 15px;
+         margin-top:50px;
          border-radius: 5px; class="alert alert-danger alert-dismissible fade show" role="alert">
           <strong>Error</strong> ' . $showError . '
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -137,7 +153,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
+    <script src="../Assets/js/main.js"></script>
 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$name = 'none';
 if (!isset($_SESSION['loggedin'])) {
     $login = false;
     header('location: ../../Auth/login.php');
@@ -7,7 +8,8 @@ if (!isset($_SESSION['loggedin'])) {
     $login = false;
 } else {
     $login = true;
-    $username = $_SESSION['username'];
+    $name = $_SESSION['username'];
+    // echo ''
     $admin = $_SESSION['admin'];
     $checkbox = "admin";
     include '_parts/_dbconnect.php';
@@ -99,7 +101,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-bar fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <a href="./products.php">
+                            <a href="./product.php">
                                 <p class="mb-2">Products</p>
                             </a>
                             <h6 class="mb-0"><?php echo $totalproducts ?></h6>
@@ -138,80 +140,41 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="container-fluid pt-4 px-4">
             <div class="bg-secondary text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Recent Salse</h6>
-                    <a href="">Show All</a>
+                    <h6 class="mb-0">Recent Listing</h6>
+                    <!-- <a href="">Show All</a> -->
                 </div>
                 <div class="table-responsive">
                     <table class="table text-start align-middle table-bordered table-hover mb-0">
                         <thead>
                             <tr class="text-white">
-                                <th scope="col">
-                                    <input class="form-check-input" type="checkbox" />
-                                </th>
+
                                 <th scope="col">Date</th>
-                                <th scope="col">Invoice</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox" /></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary" href="">Detail</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox" /></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary" href="">Detail</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox" /></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary" href="">Detail</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox" /></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary" href="">Detail</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-check-input" type="checkbox" /></td>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary" href="">Detail</a>
-                                </td>
-                            </tr>
+                            <?php
+                            $sql = "SELECT * from products ORDER BY registered_on DESC";
+                            $result = mysqli_query($conn, $sql);
+                            $num = mysqli_num_rows($result);
+                            while ($num != 0) {
+                                $row = mysqli_fetch_assoc($result);
+                                echo '  <tr>
+                                <td>' . $row['registered_on'] . '</td>
+                                <td>' . $row['prod_name'] . '</td>
+                                <td>' . $row['username'] . '</td>
+                                <td>' . $row['price'] . '</td>
+                                <td>' . $row['quantity'] . '</td>
+                            </tr>';
+                                $num -= 1;
+                            }
+                            ?>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -226,48 +189,30 @@ if (!isset($_SESSION['loggedin'])) {
                     <div class="h-100 bg-secondary rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <h6 class="mb-0">Messages</h6>
-                            <a href="">Show All</a>
+                            <!-- <a href="">Show All</a> -->
                         </div>
-                        <div class="d-flex align-items-center border-bottom py-3">
+                        <?php
+                        $sql = "SELECT * from chatbot where message_for='$name' and is_response=0";
+                        $result = mysqli_query($conn, $sql);
+                        // print_r($result);
+                        $num = mysqli_num_rows($result);
+                        while ($num != 0) {
+                            $row = mysqli_fetch_assoc($result);
+                            echo '<div class="d-flex align-items-center border-bottom py-3">
                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px" />
                             <div class="w-100 ms-3">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-0">Jhon Doe</h6>
+                                    <h6 class="mb-0">' . $row['message_from'] . '</h6>
                                     <small>15 minutes ago</small>
                                 </div>
-                                <span>Short message goes here...</span>
+                                <span>' . $row['messages'] . '</span>
                             </div>
-                        </div>
-                        <div class="d-flex align-items-center border-bottom py-3">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px" />
-                            <div class="w-100 ms-3">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-0">Jhon Doe</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                                <span>Short message goes here...</span>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center border-bottom py-3">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px" />
-                            <div class="w-100 ms-3">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-0">Jhon Doe</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                                <span>Short message goes here...</span>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center pt-3">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px" />
-                            <div class="w-100 ms-3">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-0">Jhon Doe</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                                <span>Short message goes here...</span>
-                            </div>
-                        </div>
+                        </div>';
+
+                            $num -= 1;
+                        }
+                        ?>
+
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-xl-4">

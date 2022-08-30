@@ -1,6 +1,11 @@
 <?php
 session_start();
-$where = "home";
+$where = "search";
+$keyword = "???";
+if (isset($_GET['search'])) {
+    $keyword = $_GET['search'];
+}
+
 if (!isset($_SESSION['loggedin'])) {
     $login = false;
 } else if ($_SESSION['loggedin'] != true) {
@@ -38,8 +43,8 @@ if (!isset($_SESSION['loggedin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
-    <link rel="stylesheet" href="./Assets/css/main.css">
-    <link rel="stylesheet" href="./Assets/css/media_query.css">
+    <link rel="stylesheet" href="../Assets/css/main.css">
+    <link rel="stylesheet" href="../Assets/css/media_query.css">
     <style>
         .product-card {
             border-radius: 10px;
@@ -130,64 +135,15 @@ if (!isset($_SESSION['loggedin'])) {
 
 
         <!-- header of the website -->
-        <?php include 'Frontend/_partials/_header.php' ?>
+        <?php include './_partials/_header.php' ?>
 
 
 
-        <!--
-        - #BANNER SECTION
-      -->
-        <section class="banner">
-            <!-- Slideshow container -->
-            <div class="slideshow-container">
-
-                <!-- Full-width images with number and caption text -->
-                <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img class="slideImage" src="https://previews.123rf.com/images/rastudio/rastudio1910/rastudio191001050/132883334-personalized-selling-concept-banner-header-.jpg" style="width:100%">
-                    <div style="    font-size: larger;
-                  font-weight: 900;
-                  color: black;" class="text">SELL YOUR PRODUCTS</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img class="slideImage" src="https://static.doofinder.com/main-files/uploads/2020/05/vender-mas.jpg" style="width:100%">
-                    <div style="    font-size: larger;
-                  font-weight: 900;
-                  color: black;" class="text">Easy Sell</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img class="slideImage" src="https://micdn-13a1c.kxcdn.com/images/sg/content-images/by_year_month/2021-december/123rf-secondhand-study2.jpg" style="width:100%">
-                    <div style="    font-size: larger;
-                  font-weight: 900;
-                  color: black;" class="text">Sell Your Secondary Goods</div>
-                </div>
-
-                <!-- Next and previous buttons -->
-                <a style="    color: black;
-                  font-size: 38px;
-                  font-weight: 900;" class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a style="    color: black;
-                  font-size: 38px;
-                  font-weight: 900;" class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <br>
-
-            <!-- The dots/circles -->
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
-        </section>
 
 
 
         <!-- PRODUCT SECTION -->
-        <section class="movies">
+        <section style="margin-top: 80px;" class="movies">
 
             <!-- filter bar -->
             <div class="filter-bar">
@@ -215,8 +171,8 @@ if (!isset($_SESSION['loggedin'])) {
                 </div> -->
 
                 <div class="filter-radios">
-
-                    <input type="radio" name="grade" id="featured" checked>
+                    <h4>Search for <?php if ($keyword != "???") echo ' <span style="color:#f3ff12; font-size: larger; text-decoration:underline">' . $keyword . '</span>'; ?></h4>
+                    <!-- <input type="radio" name="grade" id="featured" checked>
                     <label onclick="getinfo(this)" for="featured">Products</label>
 
                     <input type="radio" name="grade" id="popular">
@@ -226,7 +182,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <label onclick="getinfo(this)" for="newest">Electronic</label>
 
 
-                    <div class="checked-radio-bg"></div>
+                    <div class="checked-radio-bg"></div> -->
 
                 </div>
 
@@ -242,8 +198,9 @@ if (!isset($_SESSION['loggedin'])) {
                 <br>
                 <div class="product-container-child">
                     <?php
-                    include 'Auth/partials/_dbconnect.php';
-                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' ORDER BY prod_id LIMIT 10";
+                    include '../Auth/partials/_dbconnect.php';
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' and prod_name LIKE '%$keyword%' ORDER BY prod_id LIMIT 10";
+
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {
@@ -413,7 +370,6 @@ if (!isset($_SESSION['loggedin'])) {
             </div>
     </div>
 
-    <button class="load-more">Use Search For Particular Product</button>
 
     </section>
 
@@ -421,7 +377,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
     <!-- Custome js link -->
-    <script src="./Assets/js/main.js"></script>
+    <script src="../Assets/js/main.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

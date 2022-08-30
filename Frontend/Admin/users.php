@@ -13,8 +13,9 @@ if (!isset($_SESSION['loggedin'])) {
     include '_parts/_dbconnect.php';
     if (isset($_SERVER['REQUEST_METHOD']) and $_SERVER['REQUEST_METHOD'] == 'POST') {
         $is_blocked = $_POST['is_blocked'];
-        $name = $_SESSION['username'];
+        $name = $_POST['user'];
         $sql = "UPDATE `users` SET `is_blocked`='$is_blocked' WHERE username='$name'";
+        // print_r($sql);
         $result = mysqli_query($conn, $sql);
     }
 }
@@ -86,6 +87,17 @@ if (!isset($_SESSION['loggedin'])) {
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Registered Users</h6>
                             <div class="table-responsive table-hover">
+                                <!-- annoucemnt -->
+                                <div class="border rounded p-4 pb-0 mb-4">
+                                    <figure>
+                                        <blockquote class="blockquote">
+                                            <p> <mark>One means Blocked and Zero means Unblocked</mark></p>
+
+                                        </blockquote>
+                                        <br>
+                                    </figure>
+                                </div>
+
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -99,9 +111,10 @@ if (!isset($_SESSION['loggedin'])) {
                                     </thead>
                                     <tbody>
 
+
                                         <?php
 
-                                        $sql = "Select username,email,is_admin,is_blocked from users ORDER BY id LIMIT 10";
+                                        $sql = "SELECT username,email,is_admin,is_blocked from users ORDER BY id LIMIT 10";
                                         $result = mysqli_query($conn, $sql);
                                         $num = mysqli_num_rows($result);
                                         $counter = 1;
@@ -112,8 +125,9 @@ if (!isset($_SESSION['loggedin'])) {
                                                 <td>' . $row["username"] . '</td>
                                                 <td>' . $row["email"] . '</td>
                                                 <form method="POST">
+                                                <input type="hidden" name="user" id="user" value="' . $row['username'] . '">
                                                 <td>  <input oninput="javascript: if (this.value > 1 || this.value < 0) this.value = 0;"  maxlength="1" required class="form-control" type="number" name="is_blocked" value="' . $row["is_blocked"] . '" id="is_blocked"></td>
-                                                <td>                                      <button type="submit" class="btn btn-primary">Save</button></td></form>
+                                                <td>          <button type="submit" class="btn btn-primary">Save</button></td></form>
                                             </tr>';
                                             $counter = $counter + 1;
                                             $num = $num - 1;

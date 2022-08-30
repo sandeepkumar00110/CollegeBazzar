@@ -2,6 +2,7 @@
 session_start();
 $showAlert  = false;
 $showError = false;
+$where = "addproduct";
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
   header('location: ../Auth/login.php');
   $login = false;
@@ -46,6 +47,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     $sql2 = "INSERT INTO `products`(`username`, `prod_name`, `thumbnail`, `prod_image`, `months_used`, `quantity`, `price`,`description`, `type_id`, `category_id`) VALUES ('$username','$product_name','$product_thumbnail','$product_image','$month_used','$quantity','$price','$prod_desc','$type_id','$category')";
     $result1 = mysqli_query($conn, $sql1);
     $result2 = mysqli_query($conn, $sql2);
+    // print_r($result2);
     if ($result1 and $result2) {
       $showAlert = true;
     } else if ($result1) {
@@ -145,12 +147,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
       <div>
         <textarea required rows="4" cols="50" id="prod_desc" name="prod_desc"></textarea>
       </div>
+      <br>
+      <div>
+        <p style="color:red">Use any free image hosting website(https://postimages.org/) and proveide the src link</p>
+      </div>
 
       <label for="product_thumbnail">Product Thumbnail</label>
       <input type="text" id="product_thumbnail" name="product_thumbnail" placeholder="https:/image-host/pro.jpeg" />
 
-      <label for="product_image">Product Image Link</label>
-      <input required type="text" id="product_image" name="product_image" placeholder="https:/image-host/pro.jpeg" />
+
+      <label for="product_image">Product Image Link(You can provide three image Link(1.png|2.png|3.png))</label>
+      <input required type="text" id="product_image" name="product_image" placeholder="1.png|2.png|3.png" />
 
       <label for="Category">Category</label>
       <select onchange="fun(this.value)" id="category" name="category">

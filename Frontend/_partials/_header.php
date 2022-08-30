@@ -1,3 +1,61 @@
+<?php
+
+$adminPath = "none";
+$loginPath = "none";
+$signPath = "none";
+$homePath = "none";
+$logOutPath = "none";
+$addproPath = "none";
+$searchPath = "none";
+if ($where == "home") {
+    $homePath = "./index.php";
+    $adminPath = "./Frontend/Admin/index.php";
+    $loginPath = "./Auth/login.php";
+    $signPath = "./Auth/sign.php";
+    $logOutPath = "./Auth/logout.php";
+    $addproPath = "./Frontend/addProduct.php";
+    $searchPath = "./Frontend/search.php";
+} else if ($where == "prod_desc" or $where == "search") {
+    $homePath = "../index.php";
+    $adminPath = "./Admin/index.php";
+    $loginPath = "../Auth/login.php";
+    $signPath = "../Auth/sign.php";
+    $logOutPath = "../Auth/logout.php";
+    $addproPath = "./addProduct.php";
+    $searchPath = "./search.php";
+} else if ($where == "addproduct") {
+    $homePath = "../index.php";
+    $adminPath = "./Admin/index.php";
+    $addproPath = "./addProduct.php";
+    $logOutPath = "../Auth/logout.php";
+    $searchPath = "./search.php";
+} else if ($where == "login" or $where == "sign") {
+    $homePath = "../index.php";
+    $addproPath = "../Frontend/addProduct.php";
+    $signPath = "./sign.php";
+    $loginPath = "./login.php";
+    $searchPath = "../Frontend/search.php";
+}
+
+?>
+<style>
+    .navbar-signin:hover {
+        transform: scale(1.25);
+    }
+
+    .navbar-form-close ion-icon {
+        color: white;
+    }
+
+    .navbar {
+        box-shadow: inset 16px -17px 7px -14px rgb(123 32 32) !important;
+    }
+
+    .navbar-form-btn ion-icon,
+    .navbar-search-btn ion-icon {
+        color: white;
+    }
+</style>
 <header class="">
     <div class="navbar">
 
@@ -22,9 +80,9 @@
         <nav class="">
             <ul class="navbar-nav">
 
-                <li> <a href="/collegebazzar/index.php" class="navbar-link">Home</a> </li>
+                <li> <a href="<?php echo $homePath; ?>" class="navbar-link">Home</a> </li>
                 <!-- <li> <a href="#category" class="navbar-link">Category</a> </li> -->
-                <li> <a href="Frontend/addProduct.php" class="navbar-link">Add Product</a> </li>
+                <li> <a href="<?php echo $addproPath; ?>" class="navbar-link">Add Product</a> </li>
 
 
             </ul>
@@ -37,7 +95,7 @@
         <div class="navbar-actions">
 
             <form style="border-radius: 5px;
-    padding: 8px;" action="search.php" method='GET' class="navbar-form">
+    padding: 8px;" action="<?php echo $searchPath; ?>" method='GET' class="navbar-form">
                 <input type="text" name="search" id="search" placeholder="I'm looking for..." class="navbar-form-search">
 
                 <button class="navbar-form-btn">
@@ -62,21 +120,22 @@
                 echo ' <a style="margin: 0 5px;" href="#" class="navbar-signin">
                 <span id="username" value=" ' . $_SESSION['username'] . '">' . $_SESSION['username'] . '</span>
                          </a>';
+
                 if ($_SESSION['admin'] == 1) {
-                    echo ' <a style="margin: 0 5px;" href="Frontend/Admin/index.php" class="navbar-signin">
+                    echo ' <a style="margin: 0 5px;" href="' . $adminPath . '" class="navbar-signin">
                 <span>Admin</span>
                          </a>';
                 }
-                echo ' <a href="collegebazzar/.././Auth/logout.php" class="navbar-signin">
+                echo ' <a href="' . $logOutPath . '" class="navbar-signin">
                                  <span>Logout</span>
                                  <ion-icon name="log-in-outline"></ion-icon>
                       </a>';
             } else {
-                echo ' <a style="margin: 0 5px;" href="collebazzar/../Auth/login.php" class="navbar-signin">
+                echo ' <a style="margin: 0 5px;" href="' . $loginPath . '" class="navbar-signin">
                 <span>Login</span>
 
             </a>
-            <a href="collebazzar/../Auth/sign.php" class="navbar-signin">
+            <a href="' . $signPath . '" class="navbar-signin">
                 <span>Sigin</span>
          
             </a>';
