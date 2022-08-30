@@ -1,9 +1,16 @@
 <?php
 session_start();
-$admin = $_SESSION["admin"];
+if(isset($_SESSION["admin"])){
+    $admin = $_SESSION["admin"];
+}
+$admin = 1;
 $login = true;
 $prod_id = 0;
 // $username = 'sandeep';
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    $login = false;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include './_partials/_dbconnect.php';
     $prod_id = $_GET['prod_id'];
@@ -33,29 +40,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <link rel="stylesheet" href="productinfo.css" class="css" />
     <link rel="stylesheet" href="../bot/bot.css">
     <style>
-        @media screen and (max-width: 850px) {
-            .wrapper {
-                flex-direction: column;
-            }
-
-            .preview-pic {
-                justify-content: flex-start;
-            }
-
-
-
-            .preview {
-                width: 49rem;
-            }
+    @media screen and (max-width: 850px) {
+        .wrapper {
+            flex-direction: column;
         }
+
+        .preview-pic {
+            justify-content: flex-start;
+        }
+
+
 
         .preview {
-            width: fit-content;
+            width: 49rem;
         }
+    }
 
-        #capital {
-            text-transform: uppercase;
-        }
+    .preview {
+        width: fit-content;
+    }
+
+    #capital {
+        text-transform: uppercase;
+    }
     </style>
 </head>
 
@@ -158,8 +165,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
 
         <div class="card">
-            <h1>Talk To Seller</h1>
-            <?php include "../bot/bot.php" ?>
+            <?php
+                if($login==true){
+                     echo '<h1>Talk To Seller</h1>';
+                 include "../bot/bot.php";
+                }
+                
+              ?>
+
+
         </div>
     </div>
     <script src="../Assets/js/main.js"></script>
