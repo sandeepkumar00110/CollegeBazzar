@@ -145,33 +145,33 @@ if (!isset($_SESSION['loggedin'])) {
                     <div class="numbertext">1 / 3</div>
                     <img class="slideImage" src="https://previews.123rf.com/images/rastudio/rastudio1910/rastudio191001050/132883334-personalized-selling-concept-banner-header-.jpg" style="width:100%">
                     <div style="    font-size: larger;
-    font-weight: 900;
-    color: black;" class="text">SELL YOUR PRODUCTS</div>
+                  font-weight: 900;
+                  color: black;" class="text">SELL YOUR PRODUCTS</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
                     <img class="slideImage" src="https://static.doofinder.com/main-files/uploads/2020/05/vender-mas.jpg" style="width:100%">
                     <div style="    font-size: larger;
-    font-weight: 900;
-    color: black;" class="text">Easy Sell</div>
+                  font-weight: 900;
+                  color: black;" class="text">Easy Sell</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
                     <img class="slideImage" src="https://micdn-13a1c.kxcdn.com/images/sg/content-images/by_year_month/2021-december/123rf-secondhand-study2.jpg" style="width:100%">
                     <div style="    font-size: larger;
-    font-weight: 900;
-    color: black;" class="text">Sell Your Secondary Goods</div>
+                  font-weight: 900;
+                  color: black;" class="text">Sell Your Secondary Goods</div>
                 </div>
 
                 <!-- Next and previous buttons -->
                 <a style="    color: black;
-    font-size: 38px;
-    font-weight: 900;" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                  font-size: 38px;
+                  font-weight: 900;" class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a style="    color: black;
-    font-size: 38px;
-    font-weight: 900;" class="next" onclick="plusSlides(1)">&#10095;</a>
+                  font-size: 38px;
+                  font-weight: 900;" class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
             <br>
 
