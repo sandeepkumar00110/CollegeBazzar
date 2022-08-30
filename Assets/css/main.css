@@ -388,7 +388,7 @@ input~.checked-radio-bg {
  */
 
 .load-more {
-  background: var(--oxford-blue);
+  background: linear-gradient(45deg, #b80c14, #dbaa31f5);
   display: block;
   padding: 20px 50px;
   margin: auto;

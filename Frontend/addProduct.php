@@ -2,6 +2,7 @@
 session_start();
 $showAlert  = false;
 $showError = false;
+$where = "addproduct";
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
   header('location: ../Auth/login.php');
   $login = false;
@@ -46,6 +47,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     $sql2 = "INSERT INTO `products`(`username`, `prod_name`, `thumbnail`, `prod_image`, `months_used`, `quantity`, `price`,`description`, `type_id`, `category_id`) VALUES ('$username','$product_name','$product_thumbnail','$product_image','$month_used','$quantity','$price','$prod_desc','$type_id','$category')";
     $result1 = mysqli_query($conn, $sql1);
     $result2 = mysqli_query($conn, $sql2);
+    // print_r($result2);
     if ($result1 and $result2) {
       $showAlert = true;
     } else if ($result1) {

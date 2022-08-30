@@ -1,5 +1,6 @@
 <?php
 session_start();
+$where = "prod_desc";
 if (isset($_SESSION["admin"])) {
     $admin = $_SESSION["admin"];
 }
@@ -215,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <div class="product-container-child">
                     <?php
                     include '../Auth/partials/_dbconnect.php';
-                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' ORDER BY prod_id LIMIT 10";
+                    $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' and prod_id!='$prod_id' ORDER BY prod_id LIMIT 10";
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {
