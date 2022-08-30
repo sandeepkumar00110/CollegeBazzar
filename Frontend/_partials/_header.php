@@ -42,6 +42,19 @@ if ($where == "home") {
     .navbar-signin:hover {
         transform: scale(1.25);
     }
+
+    .navbar-form-close ion-icon {
+        color: white;
+    }
+
+    .navbar {
+        box-shadow: inset 16px -17px 7px -14px rgb(123 32 32) !important;
+    }
+
+    .navbar-form-btn ion-icon,
+    .navbar-search-btn ion-icon {
+        color: white;
+    }
 </style>
 <header class="">
     <div class="navbar">

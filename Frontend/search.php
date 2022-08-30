@@ -2,15 +2,15 @@
 session_start();
 $where = "search";
 $keyword = "???";
+if (isset($_GET['search'])) {
+    $keyword = $_GET['search'];
+}
 
 if (!isset($_SESSION['loggedin'])) {
     $login = false;
 } else if ($_SESSION['loggedin'] != true) {
     $login = false;
 } else {
-    if (isset($_GET['search'])) {
-        $keyword = $_GET['search'];
-    }
     $login = true;
     $username = $_SESSION['username'];
     $admin = $_SESSION['admin'];
@@ -200,6 +200,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <?php
                     include '../Auth/partials/_dbconnect.php';
                     $sql = "Select prod_id,prod_name,price,type_id,category_id,thumbnail from products where is_approved='1' and prod_name LIKE '%$keyword%' ORDER BY prod_id LIMIT 10";
+
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     while ($num != 0) {

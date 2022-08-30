@@ -124,7 +124,7 @@ nav {
 }
 
 .navbar-form-search {
-  background: var(--oxford-blue);
+  background: linear-gradient(82deg, #d25600, black);
   width: 100%;
   padding: 12px 20px;
   border-radius: 15px;
@@ -276,7 +276,7 @@ nav {
 
 .active,
 .dot:hover {
-  background-color: #71717100;
+  background-color: #000000;
 }
 
 /* Fading animation */
@@ -606,4 +606,29 @@ ul .link-item:not(:last-child) {
   margin: 0;
   opacity: 1;
   transition: 0s;
+}
+
+/* making syle same for background and adding shadow */
+body{
+  background: linear-gradient(45deg, #ff1c15de, #ae6f12);
+
+}
+.filter-bar{ 
+  box-shadow: -3px 1px 29px 11px rgb(0 0 0) !important;
+ 
+}
+.load-more{
+  box-shadow: -3px 1px 29px 11px rgb(0 0 0) !important;
+  margin-bottom: 50px;
+}
+.card-head{
+  box-shadow: -3px 1px 29px 11px rgb(0 0 0);
+  border-radius: 11px;
+  padding-bottom: 3px;
+}
+.mySlides{
+  box-shadow: -3px 1px 29px 11px rgb(0 0 0);
+}
+.navbar{
+  box-shadow: 0px 1px 15px 10px rgb(0 0 0);
 }
